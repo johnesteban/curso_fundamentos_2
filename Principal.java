@@ -224,6 +224,7 @@ public class Principal
                 }catch(Exception e){
                     System.out.println("Ha sucedido un error: "+e);
                 }
+                System.out.println("Revise la información de los vehiculos parqueados en su archivo de texto");
                 break;
                 default:
                 System.out.println("Comando incorrecto");

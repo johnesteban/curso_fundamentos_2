@@ -8,7 +8,7 @@ public class Vehiculo
     private String color;
     private int valorComercial;
     protected Date fechaCreada;
-    
+
     public Vehiculo(){
         this(null,null,null,0);
     }
@@ -57,7 +57,7 @@ public class Vehiculo
     public int getvalorComercial(){
         return this.valorComercial;
     }
-    
+
     public String getTipo(){
         return "Vehiculo";
     }
@@ -105,24 +105,21 @@ public class Vehiculo
     public static String ordenarValor(){
         String cadena="";
         Vehiculo temp;
-        
         int posmenor;
-        Vehiculo[] ordenados=new Vehiculo[Vehiculo.cantidad];
+        Vehiculo[] ordenados=new Vehiculo[Vehiculo.vehiculos.length];
         int n=ordenados.length;
         for(int i=0;i<vehiculos.length;i++){
-           if(vehiculos[i]!=null){
-               ordenados[i]=vehiculos[i];
+            if(vehiculos[i]!=null){
+                ordenados[i]=vehiculos[i];
             }
         }
         for(int i=0;i<n-1;i++){
             posmenor=i;
-            
-                for(int j=i+1;j<n;j++){
-                    if((ordenados[j]!=null) && (ordenados[j].getvalorComercial()<ordenados[posmenor].getvalorComercial())){
-                        posmenor=j;
-                    }
+            for(int j=i+1;j<n;j++){
+                if((ordenados[j]!=null && ordenados[posmenor]!=null) && (ordenados[j].getvalorComercial()<ordenados[posmenor].getvalorComercial())){
+                    posmenor=j;
                 }
-            
+            }
             temp=ordenados[i];
             ordenados[i]=ordenados[posmenor];
             ordenados[posmenor]=temp;
@@ -132,8 +129,8 @@ public class Vehiculo
                 cadena+=ordenados[i].toString()+"\n";
             }
         }
-        cadena=cadena.substring(0,cadena.length()-1);
-        return cadena;//COMO REORDENAR EL ARREGLO(?)
+        cadena=cadena.substring(0,cadena.length());
+        return cadena;
     }
 
 }
