@@ -105,24 +105,31 @@ public class Vehiculo
     public static String ordenarValor(){
         String cadena="";
         Vehiculo temp;
-        int n=vehiculos.length;
+        
         int posmenor;
+        Vehiculo[] ordenados=new Vehiculo[Vehiculo.cantidad];
+        int n=ordenados.length;
+        for(int i=0;i<vehiculos.length;i++){
+           if(vehiculos[i]!=null){
+               ordenados[i]=vehiculos[i];
+            }
+        }
         for(int i=0;i<n-1;i++){
             posmenor=i;
-            if(vehiculos[i]!=null){
+            
                 for(int j=i+1;j<n;j++){
-                    if((vehiculos[j]!=null) && (vehiculos[j].getvalorComercial()<vehiculos[posmenor].getvalorComercial())){
+                    if((ordenados[j]!=null) && (ordenados[j].getvalorComercial()<ordenados[posmenor].getvalorComercial())){
                         posmenor=j;
                     }
                 }
-            }
-            temp=vehiculos[i];
-            vehiculos[i]=vehiculos[posmenor];
-            vehiculos[posmenor]=temp;
+            
+            temp=ordenados[i];
+            ordenados[i]=ordenados[posmenor];
+            ordenados[posmenor]=temp;
         }
         for(int i=0; i<n; i++){
-            if(vehiculos[i]!=null){
-                cadena+=vehiculos[i].toString()+"\n";
+            if(ordenados[i]!=null){
+                cadena+=ordenados[i].toString()+"\n";
             }
         }
         cadena=cadena.substring(0,cadena.length()-1);

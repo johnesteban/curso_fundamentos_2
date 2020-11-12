@@ -57,9 +57,9 @@ public class PrincipalBichos
             PrincipalBichos.mostrarTablero();
         
 
-    }
+      }
 
- } 
+   } 
    
     public static void mostrarTablero(){
         for(int i=0;i<bichos.length;i++){
