@@ -5,7 +5,7 @@ public class PrincipalBichos
     public static void main(String[]args){
         Scanner scan=new Scanner(System.in);
         int numeroAleatorio=(int)(Math.random()*4+1);
-        System.out.println(numeroAleatorio);
+        System.out.println("Numero de bichos a instanciar: "+numeroAleatorio);
         for(int i=0;i<numeroAleatorio;i++){
             int numeroAleatorio2=(int)(Math.random()*2+1);
             System.out.println(numeroAleatorio2);
@@ -26,41 +26,41 @@ public class PrincipalBichos
             }
         }
         PrincipalBichos.mostrarTablero();
-       while(true){
+        while(true){
             int contador=0;
             System.out.println("Ingrese el numero de la fila sobre la cual desea disparar la bala: ");
             int fila=scan.nextInt();
             System.out.println("Ingrese el numero de la columna sobre la cual desea disparar la bala: ");
             int columna=scan.nextInt();
-            if(fila<=1 && columna<=1){
-            if(bichos[fila][columna]!=null){
-                Bichos.atacar(bichos[fila][columna]);
-                if(bichos[fila][columna].getSalud()<=0){
-                bichos[fila][columna]=null;
-              }
+            if(fila<=1 && columna<=1 && fila>=0 && columna>=0){
+                if(bichos[fila][columna]!=null){
+                    Bichos.atacar(bichos[fila][columna]);
+                    if(bichos[fila][columna].getSalud()<=0){
+                        bichos[fila][columna]=null;
+                    }
+                }
+                else if(bichos[fila][columna]==null){
+                    System.out.println("La posicion ingresada ya no contiene ningun bicho, ingrese otra posicion");
+                }
             }
-          }
-          else{
-              System.out.println("No se encontro la fila y columna ingresada, ingreselas de nuevo");
+            else{
+                System.out.println("No se encontro la fila y columna ingresada, ingreselas de nuevo");
             }
-           for(int i=0;i<bichos.length;i++){
+            for(int i=0;i<bichos.length;i++){
                 for(int j=0;j<bichos[i].length;j++){
                     if(bichos[i][j]==null){
                         contador++;
                     }
                 }
-           }
-           if(contador==4){
+            }
+            if(contador==4){
                 System.out.println("Game over");
                 break;
-           }
+            }
             PrincipalBichos.mostrarTablero();
-        
+        }
+    } 
 
-      }
-
-   } 
-   
     public static void mostrarTablero(){
         for(int i=0;i<bichos.length;i++){
             System.out.println("-------------");
@@ -68,12 +68,12 @@ public class PrincipalBichos
             for(int j=0;j<bichos[i].length;j++){
                 if(bichos[i][j]!=null){
                     if(bichos[i][j].getSalud()>=10){
-                    System.out.print(bichos[i][j].toString()+"|");
+                        System.out.print(bichos[i][j].toString()+"|");
+                    }
+                    else if(bichos[i][j].getSalud()<10){
+                        System.out.print(bichos[i][j].toString()+" |");
+                    }
                 }
-                else if(bichos[i][j].getSalud()<10){
-                    System.out.print(bichos[i][j].toString()+" |");
-                }
-              }
                 else{
                     System.out.print("     |");
                 }

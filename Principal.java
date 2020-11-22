@@ -178,12 +178,13 @@ public class Principal
                 case 10:
                 System.out.println("Ingrese el espacio que desea desocupar: ");
                 int espacioD=scan.nextInt();
-                if(Vehiculo.vehiculos[espacioD]==null){
-                    System.out.println("Este espacio ya esta libre, imposible desocupar");
+                
+                if(espacioD<0 || espacioD>=espacios){
+                    System.out.println("Este espacio no existe");
                     break;
                 }
-                else if(espacioD<0 || espacioD>=espacios){
-                    System.out.println("Este espacio no existe");
+                else if(Vehiculo.vehiculos[espacioD]==null){
+                    System.out.println("Este espacio ya esta libre, imposible desocupar");
                     break;
                 }
                 else{
