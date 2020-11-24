@@ -17,6 +17,6 @@ public class Moto extends Vehiculo{
 	 }
 	@Override
 	public String toString(){
-		return "Fecha y hora de ingreso: "+this.fechaCreada+"\n"+"Tipo de vehiculo: Moto"+" Placa:"+this.getPlaca()+", Marca:"+this.getMarca()+", Color:"+this.getColor()+", Valor comercial:"+this.getvalorComercial();
+		return "Fecha y hora de ingreso: "+this.fechaCreada+"\n"+"Tipo de vehiculo: "+this.getTipo()+", Placa:"+this.getPlaca()+", Marca:"+this.getMarca()+", Color:"+this.getColor()+", Valor comercial:"+this.getvalorComercial();
 	}
 }
